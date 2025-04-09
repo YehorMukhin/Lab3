@@ -131,15 +131,15 @@ spec:
             - python manage.py syncdb --noinput && python manage.py migrate && python manage.py runserver 0.0.0.0:5000
           image: arshad1914/pipeline:latest
           name: notejam
-      ports:
-        - containerPort: 5000
-      resources:
-        requests:
-          cpu: 100m
-          memory: 128Mi
-        limits:
-          cpu: 250m
-          memory: 250Mi
+        ports:
+          - containerPort: 5000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 250Mi
       restartPolicy: Always
 
 ---
