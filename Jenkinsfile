@@ -3,7 +3,7 @@ agent any
     environment {
    	 PROJECT_ID = 'docker'
             	CLUSTER_NAME = 'jenkins'
-            	LOCATION = 'europe-central-2a'
+            	LOCATION = 'europe-central2-a'
             	CREDENTIALS_ID = 'kubernetes'
     }
     stages {
