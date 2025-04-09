@@ -2,7 +2,7 @@ pipeline {
 agent any
     environment {
    	 PROJECT_ID = 'lab3cit'
-            	CLUSTER_NAME = 'jenkins'
+            	CLUSTER_NAME = 'lab-3-cluster'
             	LOCATION = 'europe-central2-a'
             	CREDENTIALS_ID = 'kubernetes'
     }
