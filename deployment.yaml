@@ -1,4 +1,4 @@
-# data-db-persistentvolumeclaim.yaml
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -13,7 +13,6 @@ spec:
       storage: 2Gi
 
 ---
-# db-configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -21,10 +20,9 @@ metadata:
     service: db
   name: db-config
 data:
-  db-name: "nj"
+  db-name: nj
 
 ---
-# db-secret.yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -35,7 +33,6 @@ data:
   password: YWRtaW5AMTIz
 
 ---
-# db-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -91,7 +88,6 @@ spec:
             claimName: data-db
 
 ---
-# db-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -126,20 +122,21 @@ spec:
     spec:
       containers:
         - args:
-            - "bash"
-            - "-c"
-            - "python manage.py syncdb --noinput && python manage.py migrate && python manage.py runserver 0.0.0.0:5000"
+            - bash
+            - -c
+            - python manage.py syncdb --noinput && python manage.py migrate &&
+              python manage.py runserver 0.0.0.0:5000
           image: arshad1914/pipeline:latest
           name: notejam
-        ports:
-          - containerPort: 5000
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 250Mi
+          ports:
+            - containerPort: 5000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 250Mi
       restartPolicy: Always
 
 ---
