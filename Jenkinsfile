@@ -3,7 +3,7 @@ agent any
     environment {
    	 PROJECT_ID = 'lab3cit'
             	CLUSTER_NAME = 'lab-3-cluster'
-            	LOCATION = 'europe-central2-a'
+            	LOCATION = 'europe-central2'
             	CREDENTIALS_ID = 'kubernetes'
     }
     stages {
