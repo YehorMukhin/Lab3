@@ -126,9 +126,9 @@ spec:
     spec:
       containers:
         - args:
-            - bash
-            - -c
-            - python manage.py syncdb --noinput && python manage.py migrate && python manage.py runserver 0.0.0.0:5000
+            - "bash"
+            - "-c"
+            - "python manage.py syncdb --noinput && python manage.py migrate && python manage.py runserver 0.0.0.0:5000"
           image: arshad1914/pipeline:latest
           name: notejam
         ports:
